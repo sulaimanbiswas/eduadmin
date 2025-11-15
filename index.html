@@ -80,6 +80,11 @@
                   <li class="nav-item">
                     <a class="ud-menu-scroll" href="#about">About</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="ud-menu-scroll" href="#visa-success"
+                      >Visa Success</a
+                    >
+                  </li>
                   <!-- <li class="nav-item">
                     <a class="ud-menu-scroll" href="#team">Team</a>
                   </li> -->
@@ -151,7 +156,7 @@
               <ul class="ud-hero-buttons">
                 <li>
                   <a href="#about" class="ud-main-btn ud-white-btn">
-                    Abount us
+                    About us
                   </a>
                 </li>
                 <li>
@@ -753,6 +758,77 @@
     </section>
     <!-- ====== Testimonials End ====== -->
 
+    <!-- ====== Gallery Start ====== -->
+    <section id="visa-success" class="ud-gallery">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ud-section-title mx-auto text-center">
+              <span>Success Story</span>
+              <h2>Visa Success</h2>
+              <p>
+                Browse our visa success stories by country or view them all.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="ud-gallery-filters">
+              <button class="ud-gallery-filter active" data-filter="all">
+                All
+              </button>
+              <button class="ud-gallery-filter" data-filter="UK">UK</button>
+              <button class="ud-gallery-filter" data-filter="Portugal">
+                Portugal
+              </button>
+              <button class="ud-gallery-filter" data-filter="Dubai">
+                Dubai
+              </button>
+              <button class="ud-gallery-filter" data-filter="Canada">
+                Canada
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row ud-gallery-grid g-4">
+          <div class="col-lg-3 col-md-4 col-sm-6 ud-gallery-col">
+            <div class="ud-gallery-item" data-country="UK">
+              <span class="ud-gallery-badge">UK</span>
+              <img src="assets/images/visa/uk-01.jpg" alt="UK student" />
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 ud-gallery-col">
+            <div class="ud-gallery-item" data-country="UK">
+              <span class="ud-gallery-badge">UK</span>
+              <img src="assets/images/visa/uk-02.jpg" alt="UK student" />
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 ud-gallery-col">
+            <div class="ud-gallery-item" data-country="Portugal">
+              <span class="ud-gallery-badge">Portugal</span>
+              <img
+                src="assets/images/visa/portugal-01.jpg"
+                alt="Portugal student"
+              />
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 ud-gallery-col">
+            <div class="ud-gallery-item" data-country="Portugal">
+              <span class="ud-gallery-badge">Portugal</span>
+              <img
+                src="assets/images/visa/portugal-02.jpg"
+                alt="Portugal student"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ====== Gallery End ====== -->
+
     <!-- ====== Team Start ====== -->
     <!-- <section id="team" class="ud-team">
       <div class="container">
@@ -1270,7 +1346,9 @@
             <div class="col-md-4">
               <p class="ud-footer-bottom-right">
                 Designed and Developed by
-                <a href="javascript:void(0)" rel="nofollow">Sulaiman Biswas</a>
+                <a href="http://abinfotech.com.bd" rel="nofollow">
+                  Ab Infotech LTD.
+                </a>
               </p>
             </div>
           </div>
@@ -1370,6 +1448,37 @@
           },
         },
       });
+
+      // gallery filter (hide entire columns to avoid gaps)
+      (function () {
+        const buttons = document.querySelectorAll(".ud-gallery-filter");
+        const cols = document.querySelectorAll(".ud-gallery-col");
+
+        if (!buttons.length || !cols.length) return;
+
+        const applyFilter = (filter) => {
+          cols.forEach((col) => {
+            const item = col.querySelector(".ud-gallery-item");
+            const country = item ? item.getAttribute("data-country") : null;
+            if (filter === "all" || country === filter) {
+              col.classList.remove("is-hidden");
+            } else {
+              col.classList.add("is-hidden");
+            }
+          });
+        };
+
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            buttons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            applyFilter(btn.getAttribute("data-filter"));
+          });
+        });
+
+        // default
+        applyFilter("all");
+      })();
     </script>
   </body>
 </html>

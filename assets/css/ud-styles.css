@@ -401,6 +401,62 @@ p {
   color: var(--primary-color);
 }
 
+/* ===== Gallery CSS ===== */
+.ud-gallery {
+  padding: 80px 0;
+  position: relative;
+}
+.ud-gallery-filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.ud-gallery-filter {
+  padding: 8px 16px;
+  border: 1px solid var(--primary-color);
+  background: var(--white);
+  color: var(--primary-color);
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.ud-gallery-filter.active,
+.ud-gallery-filter:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+.ud-gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.ud-gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.ud-gallery-badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--white);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+.ud-gallery-item.is-hidden {
+  display: none !important;
+}
+.ud-gallery-col.is-hidden {
+  display: none !important;
+}
+
 .navbar-nav .nav-item:hover > a {
   color: var(--white);
   opacity: 0.5;
